@@ -1,17 +1,21 @@
 import React from "react";
 
-const PostCard = ({ thought }) => {
+const PostCard = ({ user, thought }) => {
   return (
     <div className="card">
-      <div className="card-header">
-      </div>
+      {user.IPv4 === thought.user ? (
+        <div className="card-header border-0 p-0 pe-1 pt-1">
+          <button
+            type="button"
+            className="btn btn-floating btn-link text-danger btn-lg float-end"
+          >
+            <i className="far fa-trash-alt"></i>
+          </button>
+        </div>
+      ) : (
+        ""
+      )}
       <div className="card-body pb-0">
-        <button
-          type="button"
-          className="btn btn-floating btn-danger btn-sm float-end mb-2"
-        >
-          <i className="far fa-trash-alt"></i>
-        </button>
         <h5 className="card-title">{thought.title}</h5>
         <p className="card-text">{thought.desc}</p>
         <div className="d-flex justify-content-between align-items-center">
@@ -24,12 +28,13 @@ const PostCard = ({ thought }) => {
         </div>
       </div>
       <div className="card-footer">
-        <div className="user-location small mb-3">
-          <i className="fas fa-map-marker-alt"></i> Posted from{" "}
-          {thought.location}
+        <div className="user-location small my-1">
+          <i className="fas fa-map-marker-alt me-2"></i>
+          <strong className="ms-1">{thought.location}</strong>
         </div>
-        <div className="date-posted small mb-3">
-          <i className="far fa-calendar-check"></i> Posted on {thought.dated}
+        <div className="date-posted small my-1">
+          <i className="far fa-calendar-check me-2"></i>
+          <strong className="ms-1">{thought.dated}</strong>
         </div>
       </div>
     </div>

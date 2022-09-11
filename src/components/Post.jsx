@@ -10,8 +10,8 @@ const Post = () => {
 
   // masonry responsive grid cols
   const breakpointColumnsObj = {
-    default: 2,
-    1100: 2,
+    default: 3,
+    1100: 3,
     700: 2,
     500: 1,
   };
