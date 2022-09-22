@@ -1,8 +1,19 @@
-import React from "react";
+import { useState } from "react";
 
 const PostCard = ({ user, thought }) => {
+  // hover shadow effect state
+  const [shadow, setShadow] = useState("card shadow-md");
+
   return (
-    <div className="card">
+    <div
+      className={shadow}
+      onMouseOver={() => {
+        setShadow("card shadow-6");
+      }}
+      onMouseOut={() => {
+        setShadow("card shadow-md");
+      }}
+    >
       {user.IPv4 === thought.user ? (
         <div className="card-header border-0 p-0 pe-1 pt-1">
           <button

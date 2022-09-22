@@ -1,13 +1,50 @@
 import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
-import About from "./pages/About";
+import Navbar from "./pages/PagesComponents/Navbar";
+import Home from "./pages/HomePage/Home";
 import ThoughtsContext from "./Context/ThoughtsContext";
 import { useState } from "react";
+import About from "./pages/AboutPage/About";
+import Create from "./pages/CreatePage/Create";
 
 const App = () => {
   // thoughts holding array
   const [thoughts, setThoughts] = useState([
+    {
+      user: "39.34.143.14",
+      title: "Flexbox",
+      desc: "Quickly navigation, components, and more with a full suite of responsive flexbox utilities. For more complex implementations, custom CSS may be necessary.",
+      likes: [
+        {
+          user: "39.34.143.14",
+          isLiked: true,
+        },
+        {
+          user: "39.34.143.15",
+          isLiked: false,
+        },
+      ],
+      location: "Karachi, Pakistan",
+      dated: "today",
+      isDeleted: false,
+    },
+    {
+      user: "39.34.143.14",
+      title: "Flexbox",
+      desc: "kasbdkahsbdk",
+      likes: [
+        {
+          user: "39.34.143.14",
+          isLiked: true,
+        },
+        {
+          user: "39.34.143.15",
+          isLiked: false,
+        },
+      ],
+      location: "Karachi, Pakistan",
+      dated: "today",
+      isDeleted: false,
+    },
     {
       user: "39.34.143.14",
       title: "Flexbox",
@@ -29,7 +66,7 @@ const App = () => {
     {
       user: "39.34.143.14",
       title: "Flexbox",
-      desc: "Quickly manage the layout, alignment, and sizing of grid columns, navigation, components, and more with a full suite of responsive flexbox utilities. For more complex implementations, custom CSS may be necessary.",
+      desc: "Quickly manage the layout, alignment, navigation, components, and more with a full suite of responsive flexbox utilities. For more complex implementations, custom CSS may be necessary.",
       likes: [
         {
           user: "39.34.143.14",
@@ -79,12 +116,11 @@ const App = () => {
   return (
     <>
       <Navbar />
-      <ThoughtsContext.Provider
-        value={{ user, thoughts, setThoughts }}
-      >
+      <ThoughtsContext.Provider value={{ user, thoughts, setThoughts }}>
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route exact path="about" element={<About />} />
+          <Route exact path="/about" element={<About />} />
+          <Route exact path="/Create" element={<Create />} />
         </Routes>
       </ThoughtsContext.Provider>
     </>
