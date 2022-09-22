@@ -6,7 +6,7 @@ import Moment from "moment";
 const Form = () => {
   // using context
   const { user, thoughts, setThoughts } = useContext(ThoughtsContext);
-  
+
   // error state
   const [error, setError] = useState(false);
 
@@ -24,11 +24,11 @@ const Form = () => {
       // creating new thought object
       const thought = {
         id: new Date().getTime() + Math.random(),
-        user: user.IPv4,
+        user: user.ip,
         title: title.value,
         desc: desc.value,
         likes: [],
-        location: `${user.city}, ${user.state}, ${user.country_name}`,
+        location: user.from,
         dated: Moment().format("MMMM Do, YYYY"),
         isDeleted: false,
       };

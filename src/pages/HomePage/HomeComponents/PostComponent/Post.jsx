@@ -24,7 +24,7 @@ const Post = () => {
       columnClassName="my-masonry-grid_column"
     >
       {reversedThoughts.map((thought, index) => (
-        <PostCard key={index} thought={thought} user={user} />
+        <PostCard key={index} thought={thought} user={user} thoughts={thoughts} setThoughts={setThoughts} />
       ))}
     </Masonry>
   );

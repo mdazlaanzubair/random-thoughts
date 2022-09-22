@@ -10,8 +10,8 @@ const Home = () => {
             <h1 className="h1 fw-bold mb-0">Random Thoughts</h1>
             <h2 className="h4 fw-light">Posted by anonymous users</h2>
           </div>
-          <Link to="/create" class="btn btn-primary btn-lg btn-floating">
-            <i class="fas fa-plus"></i>
+          <Link to="/create" className="btn btn-primary btn-lg btn-floating">
+            <i className="fas fa-plus"></i>
           </Link>
         </div>
         <div className="col-md-12">
