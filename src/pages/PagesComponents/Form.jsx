@@ -20,24 +20,40 @@ const Form = () => {
     useFormValidator(title.value, desc.value, setError);
 
     // checking if there is no error in the input
-    if (!error) {
+    if (error === false) {
       // creating new thought object
       const thought = {
         id: new Date().getTime() + Math.random(),
         user: user.ip,
         title: title.value,
         desc: desc.value,
-        likes: [],
+        likes: 0,
         location: user.from,
         dated: Moment().format("MMMM Do, YYYY"),
         isDeleted: false,
       };
 
-      // posting thought object in thoughts array
+      // posting thought object in thoughts state array
       setThoughts([...thoughts, thought]);
+
+      // sending data to the server
+      fetch("https://fair-pear-fly-cap.cyclic.app/create", {
+        // Adding method type
+        method: "POST",
+
+        // Adding body or contents to send
+        body: JSON.stringify(thought),
+
+        // Adding headers to the request
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      });
 
       title.value = "";
       desc.value = "";
+    } else {
+      return;
     }
   };
 

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import ThoughtsContext from "../../../../Context/ThoughtsContext";
+import ThoughtsContext from "../../../Context/ThoughtsContext";
 import PostCard from "./post_components/PostCard";
 import Masonry from "react-masonry-css";
 
@@ -10,7 +10,7 @@ const Post = () => {
 
   // masonry responsive grid cols
   const breakpointColumnsObj = {
-    default: 4,
+    default: 3,
     1100: 2,
     700: 2,
     500: 1,

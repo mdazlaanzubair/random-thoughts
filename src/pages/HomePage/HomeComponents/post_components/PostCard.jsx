@@ -9,7 +9,7 @@ const PostCard = ({ user, thought, thoughts, setThoughts }) => {
     // async function to like thought on server and returns the updated thought
     const fetchPosts = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:3000/like/" + id);
+        const response = await fetch("https://fair-pear-fly-cap.cyclic.app/like/" + id);
         const data = await response.json();
         return data;
       } catch (error) {
@@ -38,7 +38,7 @@ const PostCard = ({ user, thought, thoughts, setThoughts }) => {
     // async function to like thought on server and returns the updated thought
     const fetchPosts = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:3000/dislike/" + id);
+        const response = await fetch("https://fair-pear-fly-cap.cyclic.app/dislike/" + id);
         const data = await response.json();
         return data;
       } catch (error) {
@@ -72,18 +72,7 @@ const PostCard = ({ user, thought, thoughts, setThoughts }) => {
         setShadow("card shadow-md");
       }}
     >
-      {user?.ip === thought.user ? (
-        <div className="card-header border-0 p-0 pe-1 pt-1">
-          <button
-            type="button"
-            className="btn btn-floating btn-link text-danger btn-lg float-end"
-          >
-            <i className="far fa-trash-alt"></i>
-          </button>
-        </div>
-      ) : (
-        ""
-      )}
+
       <div className="card-body pb-0">
         <h5 className="card-title">{thought.title}</h5>
         <p className="card-text">{thought.desc}</p>

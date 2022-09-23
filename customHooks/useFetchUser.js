@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 const useFetchUser = (setThoughts) => {
   // creating url
-  const url = "http://127.0.0.1:3000/user";
+  const url = "http://ip-api.com/json";
 
   // running this fetch request every time url changes
   useEffect(() => {
@@ -10,7 +10,7 @@ const useFetchUser = (setThoughts) => {
       try {
         await fetch(url)
           .then((res) => res.json())
-          .then((data) => setThoughts(data));
+          .then((data) => setThoughts({ ip: data.query, from: `${data.city}, ${data.country}`}));
       } catch (error) {
         console.log(error);
       }
